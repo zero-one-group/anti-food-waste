@@ -28,7 +28,7 @@ import {
   NavItem,
 } from '@anti-food-waste/cms/components';
 
-import { Overview } from '@anti-food-waste/cms/pages';
+import { Overview, Home } from '@anti-food-waste/cms/pages';
 
 export const Sidebar = () => {
   return (
@@ -40,30 +40,26 @@ export const Sidebar = () => {
             <Stack spacing="8" flex="1" overflow="auto" pt="8">
               <Stack spacing="1">
                 <NavItem
-                  href="/overview"
+                  href="/home"
                   active
                   icon={<BiHome />}
                   label="Get Started"
                 />
-                <NavItem
-                  href="/overview"
-                  icon={<BiCommentAdd />}
-                  label="Inbox"
-                />
+                <NavItem href="/home" icon={<BiCommentAdd />} label="Inbox" />
               </Stack>
               <NavGroup label="Your Business">
                 <NavItem
-                  href="/overview"
+                  href="/home"
                   icon={<BiCreditCard />}
                   label="Transactions"
                 />
                 <NavItem
-                  href="/overview"
+                  href="/home"
                   icon={<BiUserCircle />}
                   label="Customers"
                 />
-                <NavItem href="/overview" icon={<BiWallet />} label="Income" />
-                <NavItem href="/overview" icon={<BiRedo />} label="Transfer" />
+                <NavItem href="/home" icon={<BiWallet />} label="Income" />
+                <NavItem href="/home" icon={<BiRedo />} label="Transfer" />
               </NavGroup>
 
               <NavGroup label="Seller Tools">
@@ -110,6 +106,7 @@ export const Sidebar = () => {
         </Box>
         <Box bg={mode('white', 'gray.800')} flex="1" p="6">
           <Switch>
+            <Route path="/home" component={Home}></Route>
             <Route path="/overview" component={Overview}></Route>
           </Switch>
         </Box>

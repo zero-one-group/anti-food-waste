@@ -11,12 +11,16 @@ import { Sidebar } from '@anti-food-waste/cms/parts';
 
 export function App() {
   return (
-    <ChakraProvider>
-      <Route exact path="/">
-        <Redirect to="/overview" />
-      </Route>
-      <Route path="/:menu" component={Sidebar} />
-    </ChakraProvider>
+    <Router>
+      <ChakraProvider>
+        <Switch>
+          <Route exact path="/">
+            <Redirect to="/home" />
+          </Route>
+          <Route path="/:menu" component={Sidebar} />
+        </Switch>
+      </ChakraProvider>
+    </Router>
   );
 }
 

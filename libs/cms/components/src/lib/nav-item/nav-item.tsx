@@ -13,10 +13,12 @@ interface NavItemProps {
 }
 
 export const NavItem = (props: NavItemProps) => {
-  const { active, subtle, icon, children, label, endElement } = props;
+  const { active, subtle, icon, children, label, endElement, href } = props;
   return (
     <HStack
+      as="a"
       w="full"
+      href={href}
       px="3"
       py="2"
       cursor="pointer"

@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
 
-import App from './app';
+import Sidebar from './sidebar';
 
-describe('App', () => {
+describe('Sidebar', () => {
   it('should render successfully', () => {
-    expect(<App />);
+    expect(<Sidebar />);
   });
 });

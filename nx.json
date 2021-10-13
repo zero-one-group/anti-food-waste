@@ -14,12 +14,7 @@
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ],
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
         "accessToken": "OTIxN2FhYWEtNjdjOC00YzQ2LTk1MGItNDk2M2RkN2ZiMzQyfHJlYWQtd3JpdGU="
       }
     }
@@ -36,11 +31,18 @@
     "cms": {
       "tags": []
     },
+    "cms-components": {
+      "tags": []
+    },
     "cms-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "cms"
-      ]
+      "implicitDependencies": ["cms"]
+    },
+    "cms-pages": {
+      "tags": []
+    },
+    "cms-parts": {
+      "tags": []
     }
   }
 }

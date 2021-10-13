@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@anti-food-waste/cms/components": ["libs/cms/components/src/index.ts"],
+      "@anti-food-waste/cms/pages": ["libs/cms/pages/src/index.ts"],
+      "@anti-food-waste/cms/parts": ["libs/cms/parts/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

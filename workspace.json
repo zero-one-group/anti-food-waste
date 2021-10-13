@@ -75,6 +75,28 @@
         }
       }
     },
+    "cms-components": {
+      "root": "libs/cms/components",
+      "sourceRoot": "libs/cms/components/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/cms/components/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/cms/components"],
+          "options": {
+            "jestConfig": "libs/cms/components/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "cms-e2e": {
       "root": "apps/cms-e2e",
       "sourceRoot": "apps/cms-e2e/src",
@@ -98,6 +120,50 @@
           "outputs": ["{options.outputFile}"],
           "options": {
             "lintFilePatterns": ["apps/cms-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "cms-pages": {
+      "root": "libs/cms/pages",
+      "sourceRoot": "libs/cms/pages/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/cms/pages/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/cms/pages"],
+          "options": {
+            "jestConfig": "libs/cms/pages/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "cms-parts": {
+      "root": "libs/cms/parts",
+      "sourceRoot": "libs/cms/parts/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/cms/parts/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/cms/parts"],
+          "options": {
+            "jestConfig": "libs/cms/parts/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }

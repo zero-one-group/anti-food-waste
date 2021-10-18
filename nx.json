@@ -43,6 +43,13 @@
     },
     "cms-parts": {
       "tags": []
+    },
+    "mobileapp": {
+      "tags": []
+    },
+    "mobileapp-e2e": {
+      "tags": [],
+      "implicitDependencies": ["mobileapp"]
     }
   }
 }

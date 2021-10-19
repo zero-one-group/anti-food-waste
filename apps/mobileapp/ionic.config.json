@@ -1,0 +1,7 @@
+{
+  "name": "mobileapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

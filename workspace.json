@@ -375,6 +375,28 @@
           }
         }
       }
+    },
+    "mobileapp-pages": {
+      "root": "libs/mobileapp/pages",
+      "sourceRoot": "libs/mobileapp/pages/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/mobileapp/pages/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/mobileapp/pages"],
+          "options": {
+            "jestConfig": "libs/mobileapp/pages/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

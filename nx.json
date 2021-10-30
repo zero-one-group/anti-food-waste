@@ -53,6 +53,9 @@
     "mobileapp-e2e": {
       "tags": [],
       "implicitDependencies": ["mobileapp"]
+    },
+    "mobileapp-pages": {
+      "tags": []
     }
   }
 }

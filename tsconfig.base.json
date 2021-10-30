@@ -20,7 +20,8 @@
       "@anti-food-waste/cms/parts": ["libs/cms/parts/src/index.ts"],
       "@anti-food-waste/mobileapp/components": [
         "libs/mobileapp/components/src/index.ts"
-      ]
+      ],
+      "@anti-food-waste/mobileapp/pages": ["libs/mobileapp/pages/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

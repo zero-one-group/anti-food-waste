@@ -47,9 +47,15 @@
     "mobileapp": {
       "tags": []
     },
+    "mobileapp-components": {
+      "tags": []
+    },
     "mobileapp-e2e": {
       "tags": [],
       "implicitDependencies": ["mobileapp"]
+    },
+    "mobileapp-pages": {
+      "tags": []
     }
   }
 }

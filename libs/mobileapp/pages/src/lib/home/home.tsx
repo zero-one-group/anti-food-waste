@@ -41,7 +41,7 @@ export function Home() {
           </IonRow>
           <IonSlides
             id="slider"
-            options={{ slidesPerView: '1.4', zoom: true, grabCursor: true }}
+            options={{ slidesPerView: '1.4', grabCursor: true }}
             className={`ion-padding-bottom`}
           >
             <IonSlide>

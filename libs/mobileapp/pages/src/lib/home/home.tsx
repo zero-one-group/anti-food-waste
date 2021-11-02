@@ -20,6 +20,7 @@ import {
   IonSlides,
   IonSlide,
   IonList,
+  IonCol,
 } from '@ionic/react';
 
 import { add } from 'ionicons/icons';
@@ -51,6 +52,7 @@ export function Home() {
                 productLocation="Surabaya"
                 productPrice={10000}
                 productSeller="Depot Jaya"
+                padding="4"
               />
             </IonSlide>
             <IonSlide>
@@ -60,6 +62,7 @@ export function Home() {
                 productLocation="Surabaya"
                 productPrice={10000}
                 productSeller="Depot Jaya"
+                padding="4"
               />
             </IonSlide>
             <IonSlide>
@@ -69,6 +72,7 @@ export function Home() {
                 productLocation="Surabaya"
                 productPrice={10000}
                 productSeller="Depot Jaya"
+                padding="4"
               />
             </IonSlide>
           </IonSlides>
@@ -81,41 +85,51 @@ export function Home() {
           </IonRow>
           <IonList>
             <IonRow>
-              <CardProduct
-                productName="Wortel"
-                productImage="https://images.unsplash.com/photo-1447175008436-054170c2e979?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
-                productLocation="Surabaya"
-                productPrice={10000}
-                productSeller="Depot Jaya"
-              />
-              <CardProduct
-                productName="Wortel"
-                productImage="https://images.unsplash.com/photo-1447175008436-054170c2e979?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
-                productLocation="Surabaya"
-                productPrice={10000}
-                productSeller="Depot Jaya"
-              />
-              <CardProduct
-                productName="Wortel"
-                productImage="https://images.unsplash.com/photo-1447175008436-054170c2e979?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
-                productLocation="Surabaya"
-                productPrice={10000}
-                productSeller="Depot Jaya"
-              />
-              <CardProduct
-                productName="Wortel"
-                productImage="https://images.unsplash.com/photo-1447175008436-054170c2e979?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
-                productLocation="Surabaya"
-                productPrice={10000}
-                productSeller="Depot Jaya"
-              />
-              <CardProduct
-                productName="Wortel"
-                productImage="https://images.unsplash.com/photo-1447175008436-054170c2e979?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
-                productLocation="Surabaya"
-                productPrice={10000}
-                productSeller="Depot Jaya"
-              />
+              <IonCol size="6">
+                <CardProduct
+                  productName="Wortel"
+                  productImage="https://images.unsplash.com/photo-1447175008436-054170c2e979?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+                  productLocation="Surabaya"
+                  productPrice={10000}
+                  productSeller="Depot Jaya"
+                />
+              </IonCol>
+              <IonCol size="6">
+                <CardProduct
+                  productName="Wortel"
+                  productImage="https://images.unsplash.com/photo-1447175008436-054170c2e979?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+                  productLocation="Surabaya"
+                  productPrice={10000}
+                  productSeller="Depot Jaya"
+                />
+              </IonCol>
+              <IonCol size="6">
+                <CardProduct
+                  productName="Wortel"
+                  productImage="https://images.unsplash.com/photo-1447175008436-054170c2e979?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+                  productLocation="Surabaya"
+                  productPrice={10000}
+                  productSeller="Depot Jaya"
+                />
+              </IonCol>
+              <IonCol size="6">
+                <CardProduct
+                  productName="Wortel"
+                  productImage="https://images.unsplash.com/photo-1447175008436-054170c2e979?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+                  productLocation="Surabaya"
+                  productPrice={10000}
+                  productSeller="Depot Jaya"
+                />
+              </IonCol>
+              <IonCol size="6">
+                <CardProduct
+                  productName="Wortel"
+                  productImage="https://images.unsplash.com/photo-1447175008436-054170c2e979?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+                  productLocation="Surabaya"
+                  productPrice={10000}
+                  productSeller="Depot Jaya"
+                />
+              </IonCol>
             </IonRow>
           </IonList>
         </IonGrid>

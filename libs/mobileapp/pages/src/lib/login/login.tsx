@@ -70,7 +70,9 @@ export function Login() {
           </IonRow>
           <IonRow style={{ marginTop: '60px' }}>
             <IonCol>
-              <IonButton expand="block">Sign In</IonButton>
+              <IonButton expand="block" href="/main">
+                Sign In
+              </IonButton>
               <p style={{ fontSize: 'medium' }}>
                 Don't have an account? <a href="/signup">Sign up</a>
               </p>

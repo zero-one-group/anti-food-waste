@@ -1,23 +1,17 @@
 import {
-  IonHeader,
   IonPage,
-  IonTitle,
-  IonToolbar,
   IonRow,
-  IonCol,
-  IonIcon,
   IonItem,
   IonLabel,
   IonInput,
   IonButton,
   IonContent,
   IonGrid,
+  IonCol,
   IonAlert,
 } from '@ionic/react';
 
 import { useState } from 'react';
-
-import { personCircle } from 'ionicons/icons';
 
 export function Login() {
   const [email, setEmail] = useState<string>('');
@@ -26,11 +20,6 @@ export function Login() {
   const [message, setMessage] = useState<string>('');
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Sign In</IonTitle>
-        </IonToolbar>
-      </IonHeader>
       <IonContent fullscreen className="ion-padding ion-text-center">
         <IonGrid>
           <IonRow>
@@ -83,7 +72,7 @@ export function Login() {
             <IonCol>
               <IonButton expand="block">Sign In</IonButton>
               <p style={{ fontSize: 'medium' }}>
-                Don't have an account? <a href="#">Sign up</a>
+                Don't have an account? <a href="/signup">Sign up</a>
               </p>
             </IonCol>
           </IonRow>

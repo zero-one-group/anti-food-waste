@@ -6,8 +6,6 @@ import {
   IonRow,
 } from '@ionic/react';
 
-import './card-product.module.css';
-
 type CardProductProps = {
   productName: string;
   productPrice: number;

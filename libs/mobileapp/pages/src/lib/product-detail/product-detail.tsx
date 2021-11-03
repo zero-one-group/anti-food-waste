@@ -1,6 +1,5 @@
 import {
   IonPage,
-  IonLabel,
   IonContent,
   IonHeader,
   IonToolbar,
@@ -9,9 +8,6 @@ import {
   IonButtons,
   IonBackButton,
   IonRow,
-  IonFab,
-  IonFabButton,
-  IonIcon,
   IonButton,
 } from '@ionic/react';
 
@@ -19,7 +15,6 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { getProductDetail } from '@anti-food-waste/mobileapp/data-access';
-import { share } from 'ionicons/icons';
 
 type productProps = {
   id: number;
@@ -79,14 +74,9 @@ export function ProductDetail() {
             Bisa diambil pada saat jam 6 - 8 malam
           </IonRow>
         </IonGrid>
-        <IonFab
-          vertical="bottom"
-          horizontal="end"
-          slot="fixed"
-          style={{ paddingBottom: '20px', paddingRight: '10px' }}
-        >
-          <IonButton style={{ margin: 'auto' }}>Request this item</IonButton>
-        </IonFab>
+        <IonButton style={{ margin: 'auto', marginTop: '40px' }} expand="block">
+          Request this item
+        </IonButton>
       </IonContent>
     </IonPage>
   );

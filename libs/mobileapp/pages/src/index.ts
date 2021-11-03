@@ -1,3 +1,4 @@
+export * from './lib/product-detail/product-detail';
 export * from './lib/profile/profile';
 export * from './lib/main/main';
 export * from './lib/home/home';

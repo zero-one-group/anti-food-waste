@@ -2,10 +2,8 @@ import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import Home from './pages/Home';
 import ViewMessage from './pages/ViewMessage';
-import { Login } from '@anti-food-waste/mobileapp/pages';
-import { Signup } from '@anti-food-waste/mobileapp/pages';
+import { Login, Signup, Main } from '@anti-food-waste/mobileapp/pages';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -31,6 +29,9 @@ const App: React.FC = () => (
       <IonRouterOutlet>
         <Route path="/login" component={Login} exact={true} />
         <Route path="/signup" component={Signup} exact={true} />
+        <Route path="/main" component={Main} exact={true} />
+        <Route path="/home" component={Main} exact={true} />
+        <Route path="/profile" component={Main} exact={true} />
         <Route path="/message/:id" component={ViewMessage} exact={true} />
         <Route exact path="/" render={() => <Redirect to="/login" />} />
       </IonRouterOutlet>

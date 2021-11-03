@@ -26,7 +26,39 @@ import {
 import { add } from 'ionicons/icons';
 import { CardProduct } from '@anti-food-waste/mobileapp/components';
 
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import {
+  getProductFromOfficial,
+  getProductFromNeighbor,
+} from '@anti-food-waste/mobileapp/data-access';
+import { useEffect, useState } from 'react';
+
+type productProps = {
+  id: number;
+  productName: string;
+  productImage: string;
+  productLocation: string;
+  productPrice: number;
+  productSeller: string;
+};
+
 export function Home() {
+  const [productFromNeighbor, setProductFromNeighbor] = useState<
+    productProps[]
+  >([]);
+  const [productFromOfficial, setProductFromOfficial] = useState<
+    productProps[]
+  >([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const productNeighbor = await getProductFromNeighbor();
+      const productOfficial = await getProductFromOfficial();
+      setProductFromNeighbor(productNeighbor);
+      setProductFromOfficial(productOfficial);
+    }
+    fetchData();
+  }, []);
   return (
     <IonPage>
       <IonHeader translucent>
@@ -45,36 +77,19 @@ export function Home() {
             options={{ slidesPerView: '1.4', grabCursor: true }}
             className={`ion-padding-bottom`}
           >
-            <IonSlide>
-              <CardProduct
-                productName="Wortel"
-                productImage="https://images.unsplash.com/photo-1447175008436-054170c2e979?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
-                productLocation="Surabaya"
-                productPrice={10000}
-                productSeller="Depot Jaya"
-                padding="4"
-              />
-            </IonSlide>
-            <IonSlide>
-              <CardProduct
-                productName="Wortel"
-                productImage="https://images.unsplash.com/photo-1447175008436-054170c2e979?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
-                productLocation="Surabaya"
-                productPrice={10000}
-                productSeller="Depot Jaya"
-                padding="4"
-              />
-            </IonSlide>
-            <IonSlide>
-              <CardProduct
-                productName="Wortel"
-                productImage="https://images.unsplash.com/photo-1447175008436-054170c2e979?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
-                productLocation="Surabaya"
-                productPrice={10000}
-                productSeller="Depot Jaya"
-                padding="4"
-              />
-            </IonSlide>
+            {productFromOfficial.map((v, i) => (
+              <IonSlide key={i}>
+                <CardProduct
+                  productName={v.productName}
+                  productImage={v.productImage}
+                  productLocation={v.productLocation}
+                  productPrice={v.productPrice}
+                  productSeller={v.productSeller}
+                  productId={v.id}
+                  padding="4"
+                />
+              </IonSlide>
+            ))}
           </IonSlides>
 
           <IonRow
@@ -85,51 +100,18 @@ export function Home() {
           </IonRow>
           <IonList>
             <IonRow>
-              <IonCol size="6">
-                <CardProduct
-                  productName="Wortel"
-                  productImage="https://images.unsplash.com/photo-1447175008436-054170c2e979?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
-                  productLocation="Surabaya"
-                  productPrice={10000}
-                  productSeller="Depot Jaya"
-                />
-              </IonCol>
-              <IonCol size="6">
-                <CardProduct
-                  productName="Wortel"
-                  productImage="https://images.unsplash.com/photo-1447175008436-054170c2e979?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
-                  productLocation="Surabaya"
-                  productPrice={10000}
-                  productSeller="Depot Jaya"
-                />
-              </IonCol>
-              <IonCol size="6">
-                <CardProduct
-                  productName="Wortel"
-                  productImage="https://images.unsplash.com/photo-1447175008436-054170c2e979?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
-                  productLocation="Surabaya"
-                  productPrice={10000}
-                  productSeller="Depot Jaya"
-                />
-              </IonCol>
-              <IonCol size="6">
-                <CardProduct
-                  productName="Wortel"
-                  productImage="https://images.unsplash.com/photo-1447175008436-054170c2e979?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
-                  productLocation="Surabaya"
-                  productPrice={10000}
-                  productSeller="Depot Jaya"
-                />
-              </IonCol>
-              <IonCol size="6">
-                <CardProduct
-                  productName="Wortel"
-                  productImage="https://images.unsplash.com/photo-1447175008436-054170c2e979?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
-                  productLocation="Surabaya"
-                  productPrice={10000}
-                  productSeller="Depot Jaya"
-                />
-              </IonCol>
+              {productFromNeighbor.map((v, i) => (
+                <IonCol size="6" key={i}>
+                  <CardProduct
+                    productName={v.productName}
+                    productImage={v.productImage}
+                    productLocation={v.productLocation}
+                    productPrice={v.productPrice}
+                    productSeller={v.productSeller}
+                    productId={v.id}
+                  />
+                </IonCol>
+              ))}
             </IonRow>
           </IonList>
         </IonGrid>

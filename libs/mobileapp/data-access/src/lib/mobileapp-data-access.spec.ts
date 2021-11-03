@@ -1,7 +1,7 @@
-import { mobileappDataAccess } from './mobileapp-data-access';
+import { getProductFromOfficial } from './mobileapp-data-access';
 
 describe('mobileappDataAccess', () => {
   it('should work', () => {
-    expect(mobileappDataAccess()).toEqual('mobileapp-data-access');
+    expect(getProductFromOfficial()).toEqual('mobileapp-data-access');
   });
 });

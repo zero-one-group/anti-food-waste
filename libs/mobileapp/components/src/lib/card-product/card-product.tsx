@@ -13,6 +13,7 @@ type CardProductProps = {
   productImage: string;
   productSeller: string;
   padding?: string;
+  productId: number;
 };
 
 export function CardProduct({
@@ -21,6 +22,7 @@ export function CardProduct({
   productLocation,
   productImage,
   productSeller,
+  productId,
   padding,
 }: CardProductProps) {
   function numberWithCommas(x: number | string): string {
@@ -28,14 +30,21 @@ export function CardProduct({
   }
 
   return (
-    <IonCard style={{ textAlign: 'left', margin: padding ? padding : '0' }}>
+    <IonCard
+      style={{ textAlign: 'left', margin: padding ? padding : '0' }}
+      href={`/product-detail/${productId}`}
+    >
       <img src={productImage} alt={productName} />
       <IonCardHeader>
         <IonCardSubtitle>
           <b>{productName}</b>
         </IonCardSubtitle>
         <IonCardTitle style={{ fontSize: '18px' }}>
-          <b>Rp {numberWithCommas(productPrice)}</b>
+          {productPrice !== 0 ? (
+            <b>Rp {numberWithCommas(productPrice)}</b>
+          ) : (
+            <b>Free</b>
+          )}
         </IonCardTitle>
         <IonRow
           className="ion-justify-content-between"

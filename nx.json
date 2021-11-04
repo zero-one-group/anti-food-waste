@@ -50,6 +50,9 @@
     "mobileapp-components": {
       "tags": []
     },
+    "mobileapp-data-access": {
+      "tags": []
+    },
     "mobileapp-e2e": {
       "tags": [],
       "implicitDependencies": ["mobileapp"]

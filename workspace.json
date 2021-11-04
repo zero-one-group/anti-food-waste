@@ -350,6 +350,28 @@
         }
       }
     },
+    "mobileapp-data-access": {
+      "root": "libs/mobileapp/data-access",
+      "sourceRoot": "libs/mobileapp/data-access/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/mobileapp/data-access/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/mobileapp/data-access"],
+          "options": {
+            "jestConfig": "libs/mobileapp/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "mobileapp-e2e": {
       "root": "apps/mobileapp-e2e",
       "sourceRoot": "apps/mobileapp-e2e/src",

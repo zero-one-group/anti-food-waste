@@ -121,7 +121,7 @@ export function Home() {
           slot="fixed"
           style={{ paddingBottom: '20px', paddingRight: '10px' }}
         >
-          <IonFabButton>
+          <IonFabButton href="/add-food">
             <IonIcon icon={add} />
           </IonFabButton>
         </IonFab>

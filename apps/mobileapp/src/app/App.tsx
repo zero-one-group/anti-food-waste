@@ -32,6 +32,7 @@ const App: React.FC = () => (
         <Route path="/main" component={Main} exact={true} />
         <Route path="/home" component={Main} exact={true} />
         <Route path="/profile" component={Main} exact={true} />
+        <Route path="/add-food" component={Main} exact={true} />
         <Route path="/product-detail/:id" component={Main} exact={true} />
         <Route path="/message/:id" component={ViewMessage} exact={true} />
         <Route exact path="/" render={() => <Redirect to="/login" />} />

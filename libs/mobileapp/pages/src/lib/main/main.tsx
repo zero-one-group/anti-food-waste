@@ -2,11 +2,6 @@ import {
   IonPage,
   IonLabel,
   IonContent,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonButtons,
-  IonBackButton,
   IonTabs,
   IonTabBar,
   IonTabButton,
@@ -15,7 +10,7 @@ import {
 } from '@ionic/react';
 import { Redirect, Route } from 'react-router-dom';
 import { IonReactRouter } from '@ionic/react-router';
-import { Home, Profile, ProductDetail } from '../..';
+import { Home, Profile, ProductDetail, AddFood } from '../..';
 
 import { home, personOutline } from 'ionicons/icons';
 
@@ -38,6 +33,7 @@ export function Main() {
                 path="/product-detail/:id"
                 children={<ProductDetail />}
               />
+              <Route exact path="/add-food" children={<AddFood />} />
               <Route exact path="/main">
                 <Redirect to="/home" />
               </Route>

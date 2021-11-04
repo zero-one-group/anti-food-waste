@@ -54,8 +54,17 @@ export function ProductDetail() {
             src={productDetail?.productImage}
             alt={productDetail?.productName}
           />
+          <IonRow>
+            {productDetail?.productPrice !== 0 ? (
+              <b style={{ fontSize: '25px', marginTop: '20px' }}>
+                Rp {productDetail?.productPrice}
+              </b>
+            ) : (
+              <b style={{ fontSize: '25px', marginTop: '20px' }}>Free</b>
+            )}
+          </IonRow>
           <IonRow style={{ marginTop: '25px' }}>
-            <b>{productDetail?.productSeller}</b>
+            <b>From {productDetail?.productSeller}</b>
           </IonRow>
           <IonRow>
             <b style={{ fontSize: '25px', marginTop: '20px' }}>

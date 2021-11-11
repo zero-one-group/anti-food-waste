@@ -7,6 +7,7 @@ const product = [
     productLocation: 'Surabaya',
     productPrice: 1000,
     productSeller: 'Depot Jaya',
+    productLabel: 'Umbi',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ullamcorper lorem neque, id commodo ligula dictum a. Nullam finibus tempus aliquet. Maecenas ac libero sodales, rhoncus justo at, maximus sem. Donec et turpis augue. Mauris sed suscipit mauris, in feugiat est. Vestibulum interdum vel est vel auctor',
     type: 'official',
@@ -19,6 +20,7 @@ const product = [
     productLocation: 'Surabaya',
     productPrice: 5000,
     productSeller: 'Dinkin dinit',
+    productLabel: 'Siap saji',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ullamcorper lorem neque, id commodo ligula dictum a. Nullam finibus tempus aliquet. Maecenas ac libero sodales, rhoncus justo at, maximus sem. Donec et turpis augue. Mauris sed suscipit mauris, in feugiat est. Vestibulum interdum vel est vel auctor',
     type: 'official',
@@ -31,6 +33,7 @@ const product = [
     productLocation: 'Sidoarjo',
     productPrice: 5000,
     productSeller: 'Catering nikahan',
+    productLabel: 'Siap saji',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ullamcorper lorem neque, id commodo ligula dictum a. Nullam finibus tempus aliquet. Maecenas ac libero sodales, rhoncus justo at, maximus sem. Donec et turpis augue. Mauris sed suscipit mauris, in feugiat est. Vestibulum interdum vel est vel auctor',
     type: 'official',
@@ -43,6 +46,7 @@ const product = [
     productLocation: 'Surabaya',
     productPrice: 0,
     productSeller: 'Rudi',
+    productLabel: 'Siap saji',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ullamcorper lorem neque, id commodo ligula dictum a. Nullam finibus tempus aliquet. Maecenas ac libero sodales, rhoncus justo at, maximus sem. Donec et turpis augue. Mauris sed suscipit mauris, in feugiat est. Vestibulum interdum vel est vel auctor',
     type: 'neighbor',
@@ -55,6 +59,7 @@ const product = [
     productLocation: 'Surabaya',
     productPrice: 0,
     productSeller: 'Santi ',
+    productLabel: 'Siap saji',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ullamcorper lorem neque, id commodo ligula dictum a. Nullam finibus tempus aliquet. Maecenas ac libero sodales, rhoncus justo at, maximus sem. Donec et turpis augue. Mauris sed suscipit mauris, in feugiat est. Vestibulum interdum vel est vel auctor',
     type: 'neighbor',
@@ -67,6 +72,7 @@ const product = [
     productLocation: 'Sidoarjo',
     productPrice: 5000,
     productSeller: 'Joko',
+    productLabel: 'Siap saji',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ullamcorper lorem neque, id commodo ligula dictum a. Nullam finibus tempus aliquet. Maecenas ac libero sodales, rhoncus justo at, maximus sem. Donec et turpis augue. Mauris sed suscipit mauris, in feugiat est. Vestibulum interdum vel est vel auctor',
     type: 'neighbor',

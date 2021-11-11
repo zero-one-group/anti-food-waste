@@ -27,7 +27,7 @@ export function Signup() {
           <IonButtons slot="start">
             <IonBackButton defaultHref="/login" />
           </IonButtons>
-          <IonTitle>Sign Up</IonTitle>
+          <IonTitle className="text-bold ion-no-padding">Sign Up</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
@@ -46,10 +46,10 @@ export function Signup() {
             </IonRouterOutlet>
             <IonTabBar slot="top">
               <IonTabButton tab="personal" href="/personal">
-                <IonLabel>Personal Account</IonLabel>
+                <IonLabel>Akun personal</IonLabel>
               </IonTabButton>
               <IonTabButton tab="official" href="/official">
-                <IonLabel>Official Account</IonLabel>
+                <IonLabel>Akun resmi</IonLabel>
               </IonTabButton>
             </IonTabBar>
           </IonTabs>

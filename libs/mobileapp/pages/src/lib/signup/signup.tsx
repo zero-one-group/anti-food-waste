@@ -18,6 +18,7 @@ import {
   SignupFormPersonal,
   SignupFormOfficial,
 } from '@anti-food-waste/mobileapp/components';
+import { arrowBack } from 'ionicons/icons';
 
 export function Signup() {
   return (
@@ -25,7 +26,7 @@ export function Signup() {
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonBackButton defaultHref="/login" />
+            <IonBackButton defaultHref="/login" icon={arrowBack} text="" />
           </IonButtons>
           <IonTitle className="text-bold ion-no-padding">Sign Up</IonTitle>
         </IonToolbar>

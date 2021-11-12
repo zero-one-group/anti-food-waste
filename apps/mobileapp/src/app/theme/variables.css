@@ -235,18 +235,18 @@ ion-item.input-rounded {
 ion-item.input-rounded > ion-input > input {
   margin-left: 8px;
 }
-.cardProduct {
+.card-product {
   width: 'full';
   display: flex;
   flex-direction: 'row';
 }
 
-.cardProduct .card-product-name {
+.card-product .card-product-name {
   height: 35px;
   padding-bottom: 4px;
 }
 
-.cardProduct .card-product-name ion-text {
+.card-product .card-product-name ion-text {
   color: var(--ion-color-dark);
 }
 
@@ -260,14 +260,14 @@ ion-item.input-rounded > ion-input > input {
   border-radius: 5px;
 }
 
-.cardProduct .card-image {
+.card-product .card-image {
   height: 170px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.cardProduct .card-image img {
+.card-product .card-image img {
   flex-shrink: 0;
   min-width: 100%;
   min-height: 100%;

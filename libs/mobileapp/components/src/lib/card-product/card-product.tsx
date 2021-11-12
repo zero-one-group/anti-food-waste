@@ -31,7 +31,7 @@ export function CardProduct({
   return (
     <IonCard
       href={`/product-detail/${productId}`}
-      className="cardProduct ion-text-left ion-no-padding"
+      className="card-product ion-text-left ion-no-padding"
     >
       <IonRow className="overflow-hidden card-image">
         <img src={productImage} alt={productName} />

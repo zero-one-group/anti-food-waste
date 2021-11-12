@@ -1,17 +1,10 @@
 import {
   IonPage,
-  IonLabel,
   IonContent,
   IonHeader,
   IonToolbar,
   IonTitle,
   IonRow,
-  IonButtons,
-  IonBackButton,
-  IonTabs,
-  IonTabBar,
-  IonTabButton,
-  IonRouterOutlet,
   IonIcon,
   IonGrid,
   IonRouterLink,
@@ -19,7 +12,6 @@ import {
   IonFabButton,
   IonSlides,
   IonSlide,
-  IonList,
   IonCol,
 } from '@ionic/react';
 
@@ -40,6 +32,7 @@ type productProps = {
   productLocation: string;
   productPrice: number;
   productSeller: string;
+  productLabel: string;
 };
 
 export function Home() {
@@ -62,19 +55,22 @@ export function Home() {
   return (
     <IonPage>
       <IonHeader translucent>
-        <IonToolbar>
-          <IonTitle>Home</IonTitle>
+        <IonToolbar mode="md">
+          <IonTitle className="text-bold">Home</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen className="ion-padding">
         <IonGrid>
           <IonRow className="ion-justify-content-between">
-            <b>From our official partner</b>
+            <b>Dari akun official</b>
             <IonRouterLink href="#">see all</IonRouterLink>
           </IonRow>
           <IonSlides
             id="slider"
-            options={{ slidesPerView: '1.4', grabCursor: true }}
+            options={{
+              slidesPerView: '1.6',
+              grabCursor: true,
+            }}
             className={`ion-padding-bottom`}
           >
             {productFromOfficial.map((v, i) => (
@@ -85,42 +81,33 @@ export function Home() {
                   productLocation={v.productLocation}
                   productPrice={v.productPrice}
                   productSeller={v.productSeller}
+                  productLabel={v.productLabel}
                   productId={v.id}
-                  padding="4"
                 />
               </IonSlide>
             ))}
           </IonSlides>
 
-          <IonRow
-            className="ion-justify-content-between"
-            style={{ marginTop: '20px' }}
-          >
-            <b>From your neighbors</b>
+          <IonRow className="ion-justify-content-between">
+            <b>Dari tetangga</b>
           </IonRow>
-          <IonList>
-            <IonRow>
-              {productFromNeighbor.map((v, i) => (
-                <IonCol size="6" key={i}>
-                  <CardProduct
-                    productName={v.productName}
-                    productImage={v.productImage}
-                    productLocation={v.productLocation}
-                    productPrice={v.productPrice}
-                    productSeller={v.productSeller}
-                    productId={v.id}
-                  />
-                </IonCol>
-              ))}
-            </IonRow>
-          </IonList>
+          <IonRow>
+            {productFromNeighbor.map((v, i) => (
+              <IonCol size="12" key={i}>
+                <CardProduct
+                  productName={v.productName}
+                  productImage={v.productImage}
+                  productLocation={v.productLocation}
+                  productPrice={v.productPrice}
+                  productSeller={v.productSeller}
+                  productLabel={v.productLabel}
+                  productId={v.id}
+                />
+              </IonCol>
+            ))}
+          </IonRow>
         </IonGrid>
-        <IonFab
-          vertical="bottom"
-          horizontal="end"
-          slot="fixed"
-          style={{ paddingBottom: '20px', paddingRight: '10px' }}
-        >
+        <IonFab vertical="bottom" horizontal="end" slot="fixed">
           <IonFabButton href="/add-food">
             <IonIcon icon={add} />
           </IonFabButton>

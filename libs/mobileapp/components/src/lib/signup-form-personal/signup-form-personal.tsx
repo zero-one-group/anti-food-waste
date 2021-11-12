@@ -8,62 +8,47 @@ import {
   IonContent,
   IonGrid,
   IonCol,
+  IonList,
 } from '@ionic/react';
 
 export function SignupFormPersonal() {
   return (
     <IonPage>
       <IonContent fullscreen className="ion-padding">
-        <IonGrid>
-          <IonRow style={{ marginTop: '20px' }}>
-            <b style={{ margin: 'auto' }}>Sign up for personal account</b>
-          </IonRow>
-          <IonRow style={{ marginTop: '20px' }}>
-            <IonCol>
-              <IonItem>
-                <IonLabel position="floating">Name</IonLabel>
-                <IonInput type="text"></IonInput>
-              </IonItem>
-            </IonCol>
-          </IonRow>
-          <IonRow>
-            <IonCol>
-              <IonItem>
-                <IonLabel position="floating">Address</IonLabel>
-                <IonInput type="text"></IonInput>
-              </IonItem>
-            </IonCol>
-          </IonRow>
-          <IonRow>
-            <IonCol>
-              <IonItem>
-                <IonLabel position="floating">Email</IonLabel>
-                <IonInput type="email"></IonInput>
-              </IonItem>
-            </IonCol>
-          </IonRow>
-          <IonRow>
-            <IonCol>
-              <IonItem>
-                <IonLabel position="floating"> Password</IonLabel>
-                <IonInput type="password"></IonInput>
-              </IonItem>
-            </IonCol>
-          </IonRow>
-          <IonRow>
-            <IonCol>
-              <IonItem>
-                <IonLabel position="floating"> Password Confirmation</IonLabel>
-                <IonInput type="password"></IonInput>
-              </IonItem>
-            </IonCol>
-          </IonRow>
-          <IonRow style={{ marginTop: '60px' }}>
-            <IonCol>
-              <IonButton expand="block">Sign Up</IonButton>
-            </IonCol>
-          </IonRow>
-        </IonGrid>
+        <IonRow className="ion-margin">
+          <IonCol size="12" className="ion-text-center">
+            <b className="ion-no-margin">Buat akun personal</b>
+          </IonCol>
+        </IonRow>
+        <form noValidate>
+          <IonList>
+            <IonItem>
+              <IonLabel position="floating">Nama</IonLabel>
+              <IonInput type="text"></IonInput>
+            </IonItem>
+            <IonItem>
+              <IonLabel position="floating">Alamat</IonLabel>
+              <IonInput type="text"></IonInput>
+            </IonItem>
+            <IonItem>
+              <IonLabel position="floating">Email</IonLabel>
+              <IonInput type="email"></IonInput>
+            </IonItem>
+            <IonItem>
+              <IonLabel position="floating">Password</IonLabel>
+              <IonInput type="password"></IonInput>
+            </IonItem>
+            <IonItem>
+              <IonLabel position="floating">Konfirmasi password</IonLabel>
+              <IonInput type="password"></IonInput>
+            </IonItem>
+          </IonList>
+          <IonCol>
+            <IonButton expand="block" mode="md">
+              Buat akun
+            </IonButton>
+          </IonCol>
+        </form>
       </IonContent>
     </IonPage>
   );

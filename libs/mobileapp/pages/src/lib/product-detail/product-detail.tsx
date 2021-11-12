@@ -9,8 +9,12 @@ import {
   IonBackButton,
   IonRow,
   IonButton,
+  IonText,
+  IonCol,
+  IonAvatar,
 } from '@ionic/react';
 
+import { arrowBack } from 'ionicons/icons';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
@@ -24,6 +28,7 @@ type productProps = {
   productPrice: number;
   productSeller: string;
   description: string;
+  productLabel: string;
 };
 
 export function ProductDetail() {
@@ -43,47 +48,64 @@ export function ProductDetail() {
       <IonHeader translucent>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonBackButton defaultHref="/home" />
+            <IonBackButton defaultHref="/home" icon={arrowBack} text="" />
           </IonButtons>
-          <IonTitle>{productDetail?.productName}</IonTitle>
+          <IonTitle className="text-bold ion-no-padding">
+            {productDetail?.productName}
+          </IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen className="ion-padding ion-text-center">
-        <IonGrid>
+      <IonContent fullscreen className="ion-padding">
+        <IonGrid className="ion-margin-bottom">
           <img
             src={productDetail?.productImage}
             alt={productDetail?.productName}
           />
-          <IonRow>
+          <IonRow className="product-detail-price">
             {productDetail?.productPrice !== 0 ? (
-              <b style={{ fontSize: '25px', marginTop: '20px' }}>
-                Rp {productDetail?.productPrice}
-              </b>
+              <IonText>Rp {productDetail?.productPrice}</IonText>
             ) : (
-              <b style={{ fontSize: '25px', marginTop: '20px' }}>Free</b>
+              <IonText>Free</IonText>
             )}
           </IonRow>
-          <IonRow style={{ marginTop: '25px' }}>
-            <b>From {productDetail?.productSeller}</b>
-          </IonRow>
           <IonRow>
-            <b style={{ fontSize: '25px', marginTop: '20px' }}>
+            <IonText className="product-detail-name">
               {productDetail?.productName}
-            </b>
+            </IonText>
           </IonRow>
-          <IonRow style={{ textAlign: 'left', marginTop: '10px' }}>
-            {productDetail?.description}
+
+          <IonRow className="product-detail-seller-container">
+            <IonAvatar>
+              <img
+                src="https://sekolahutsman.sch.id/wp-content/uploads/2016/03/no-profile.png"
+                alt="profile"
+              />
+            </IonAvatar>
+            <IonCol className="product-detail-seller">
+              <IonRow>
+                <IonText>{productDetail?.productSeller}</IonText>
+              </IonRow>
+              <IonRow>
+                <IonText>{productDetail?.productLocation}</IonText>
+              </IonRow>
+            </IonCol>
           </IonRow>
-          <IonRow
-            style={{ fontSize: '20px', textAlign: 'left', marginTop: '20px' }}
-          >
-            <b>Pick up times</b>
+          <IonRow className="ion-margin-bottom">
+            <IonText className="product-detail-category">Kategori: </IonText>
+            <div className="card-product-label">
+              {productDetail?.productLabel}
+            </div>
           </IonRow>
-          <IonRow style={{ textAlign: 'left', marginTop: '10px' }}>
-            Bisa diambil pada saat jam 6 - 8 malam
+          <IonRow className="product-detail-description">
+            <IonText>Deskripsi</IonText>
+            <IonText>{productDetail?.description}</IonText>
+          </IonRow>
+          <IonRow className="product-detail-description ion-margin-top">
+            <IonText>Pick up times</IonText>
+            <IonText>Bisa diambil pada saat jam 6 - 8 malam</IonText>
           </IonRow>
         </IonGrid>
-        <IonButton style={{ margin: 'auto', marginTop: '40px' }} expand="block">
+        <IonButton expand="block" className="ion-margin-top">
           Request this item
         </IonButton>
       </IonContent>

@@ -12,7 +12,7 @@ import { Redirect, Route } from 'react-router-dom';
 import { IonReactRouter } from '@ionic/react-router';
 import { Home, Profile, ProductDetail, AddFood } from '../..';
 
-import { home, personOutline } from 'ionicons/icons';
+import { home, person } from 'ionicons/icons';
 
 export function Main() {
   return (
@@ -44,7 +44,7 @@ export function Main() {
                 <IonLabel>Home</IonLabel>
               </IonTabButton>
               <IonTabButton tab="official" href="/profile">
-                <IonIcon icon={personOutline} />
+                <IonIcon icon={person} />
                 <IonLabel>Profile</IonLabel>
               </IonTabButton>
             </IonTabBar>

@@ -7,19 +7,18 @@ import {
   IonTitle,
   IonButtons,
   IonBackButton,
-  IonTabs,
-  IonTabBar,
-  IonTabButton,
-  IonRouterOutlet,
   IonRow,
   IonCol,
   IonItem,
   IonInput,
-  IonGrid,
   IonButton,
   IonIcon,
+  IonList,
+  IonText,
+  IonSelect,
+  IonSelectOption,
 } from '@ionic/react';
-import { imageOutline } from 'ionicons/icons';
+import { arrowBack, imageOutline } from 'ionicons/icons';
 
 export function AddFood() {
   return (
@@ -27,58 +26,76 @@ export function AddFood() {
       <IonHeader translucent>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonBackButton defaultHref="/home" />
+            <IonBackButton defaultHref="/home" icon={arrowBack} text="" />
           </IonButtons>
-          <IonTitle>Add Food</IonTitle>
+          <IonTitle className="text-bold ion-no-padding">
+            Tambah makanan
+          </IonTitle>
         </IonToolbar>
       </IonHeader>
 
       <IonContent fullscreen className="ion-padding ion-text-center">
-        <IonGrid>
-          <IonRow>
-            <b style={{ margin: 'auto' }}>
-              Share food with others and save the world
-            </b>
-          </IonRow>
-          <IonRow style={{ marginTop: '20px' }}>
-            <IonCol>
-              <IonItem>
-                <IonLabel position="stacked">Title</IonLabel>
-                <IonInput type="text"></IonInput>
-              </IonItem>
-              <IonItem style={{ marginTop: '10px' }}>
-                <IonLabel position="stacked">Pick up times</IonLabel>
-                <IonInput
-                  type="text"
-                  placeholder="e.g. makanan bisa diambil pada saat jam 6 malam"
-                ></IonInput>
-              </IonItem>
-              <IonItem style={{ marginTop: '10px' }}>
-                <IonLabel position="stacked">Location</IonLabel>
-                <IonInput
-                  type="text"
-                  placeholder="e.g. Sidoarjo, Gedangan"
-                ></IonInput>
-              </IonItem>
-              <IonItem style={{ marginTop: '10px' }}>
-                <IonLabel position="stacked">Description</IonLabel>
-                <IonInput type="text"></IonInput>
-              </IonItem>
-              <IonItem style={{ marginTop: '10px' }}>
-                <IonLabel position="stacked">Price</IonLabel>
-                <IonInput type="number" placeholder="e.g. 1000"></IonInput>
-              </IonItem>
-            </IonCol>
-          </IonRow>
-          <IonButton color="light" expand="block" style={{ marginTop: '20px' }}>
-            <IonIcon icon={imageOutline} style={{ marginRight: '5px' }} />
-            Upload
-          </IonButton>
-        </IonGrid>
+        <IonRow className="ion-margin">
+          <IonCol size="12" className="ion-text-center">
+            <b>Bagikan makanan dan selamatkan dunia</b>
+          </IonCol>
+        </IonRow>
+        <form noValidate>
+          <IonList>
+            <IonItem>
+              <IonLabel position="stacked">Nama makanan</IonLabel>
+              <IonInput type="text" />
+            </IonItem>
+            <IonItem>
+              <IonLabel position="stacked">Pick up times</IonLabel>
+              <IonInput
+                type="text"
+                placeholder="e.g. makanan bisa diambil pada saat jam 6 malam"
+              />
+            </IonItem>
+            <IonItem>
+              <IonLabel position="stacked">Lokasi</IonLabel>
+              <IonInput
+                type="text"
+                placeholder="e.g. Sidoarjo, Gedangan"
+              ></IonInput>
+            </IonItem>
+            <IonItem>
+              <IonLabel position="stacked">Deskripsi</IonLabel>
+              <IonInput type="text"></IonInput>
+            </IonItem>
+            <IonItem>
+              <IonLabel position="stacked">Harga</IonLabel>
+              <IonInput type="number" placeholder="e.g. 0"></IonInput>
+            </IonItem>
+            <IonItem>
+              <IonLabel position="stacked">Kategori</IonLabel>
+              <IonSelect>
+                <IonSelectOption value="Siap saji">Siap saji</IonSelectOption>
+                <IonSelectOption value="Bahan">Bahan</IonSelectOption>
+                <IonSelectOption value="Umbi">Umbi</IonSelectOption>
+                <IonSelectOption value="Buah">Buah</IonSelectOption>
+                <IonSelectOption value="Minuman">Minuman</IonSelectOption>
+                <IonSelectOption value="Kalengan">Kalengan</IonSelectOption>
+              </IonSelect>
+            </IonItem>
+            <IonButton
+              color="light"
+              expand="block"
+              className="ion-margin-bottom ion-margin-top upload-button"
+            >
+              <IonIcon icon={imageOutline} />
+              <IonText>Upload</IonText>
+            </IonButton>
 
-        <IonButton expand="block" style={{ marginTop: '40px' }}>
-          Add new food
-        </IonButton>
+            <IonButton
+              expand="block"
+              className="ion-margin-bottom ion-margin-top"
+            >
+              <IonText>Add new food</IonText>
+            </IonButton>
+          </IonList>
+        </form>
       </IonContent>
     </IonPage>
   );

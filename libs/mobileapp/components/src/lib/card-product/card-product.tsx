@@ -36,7 +36,7 @@ export function CardProduct({
       <IonRow className="overflow-hidden card-image">
         <img src={productImage} alt={productName} />
       </IonRow>
-      <IonCardHeader>
+      <IonCardHeader mode="md">
         <div className="card-product-name">
           <IonText>{productName}</IonText>
         </div>

@@ -10,7 +10,7 @@ import {
 } from '@ionic/react';
 import { Redirect, Route } from 'react-router-dom';
 import { IonReactRouter } from '@ionic/react-router';
-import { Home, Profile, ProductDetail, AddFood } from '../..';
+import { Home, Profile, ProductDetail, AddFood, UpdateProfile } from '../..';
 
 import { home, person } from 'ionicons/icons';
 
@@ -34,6 +34,11 @@ export function Main() {
                 children={<ProductDetail />}
               />
               <Route exact path="/add-food" children={<AddFood />} />
+              <Route
+                exact
+                path="/update-profile"
+                children={<UpdateProfile />}
+              />
               <Route exact path="/main">
                 <Redirect to="/home" />
               </Route>

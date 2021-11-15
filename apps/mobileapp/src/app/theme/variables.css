@@ -411,3 +411,7 @@ ion-item.no-margin-bottom {
 .ion-padding-start-half {
   padding-left: 8px;
 }
+
+.button-update-profile-photo {
+  color: var(--ion-color-primary);
+}

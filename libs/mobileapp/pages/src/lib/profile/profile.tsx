@@ -43,7 +43,7 @@ export function Profile() {
       <IonHeader>
         <IonToolbar mode="md">
           <IonRow className="ion-justify-content-between">
-            <IonTitle className="text-bold ">My profile</IonTitle>
+            <IonTitle className="text-bold">Profil saya</IonTitle>
           </IonRow>
         </IonToolbar>
       </IonHeader>
@@ -68,8 +68,9 @@ export function Profile() {
             expand="block"
             fill="outline"
             className="ion-margin-bottom"
+            href="/update-profile"
           >
-            Ubah Profile
+            Ubah Profil
           </IonButton>
           <IonRow className="ion-padding-top">
             <b>Makanan yang kamu bagikan</b>

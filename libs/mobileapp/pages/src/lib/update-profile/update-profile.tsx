@@ -78,6 +78,9 @@ export function UpdateProfile() {
             <IonButton expand="block" mode="md">
               Ubah profil
             </IonButton>
+            <IonButton expand="block" mode="md" fill="outline" href="/login">
+              logout
+            </IonButton>
           </IonCol>
         </form>
       </IonContent>

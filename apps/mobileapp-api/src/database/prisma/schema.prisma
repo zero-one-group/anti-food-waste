@@ -1,0 +1,35 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id              Int      @id @default(autoincrement())
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  userName        String   @db.VarChar(255)
+  userAddress     String
+  userPhoneNumber Int
+  userEmail       String   @unique
+  userPassword    String
+  userType        String
+  foods           Food[]
+}
+
+model Food {
+  id              Int      @id @default(autoincrement())
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  foodTitle       String   @db.VarChar(255)
+  foodPrice       Int
+  foodCategory    String
+  foodDescription String
+  foodImage       String
+  pickUpTimes     String
+  User            User     @relation(fields: [userId], references: [id])
+  userId          Int
+}

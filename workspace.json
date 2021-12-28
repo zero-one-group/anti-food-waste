@@ -8,19 +8,14 @@
       "targets": {
         "build": {
           "executor": "@nrwl/web:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/cms",
             "index": "apps/cms/src/index.html",
             "main": "apps/cms/src/main.tsx",
             "polyfills": "apps/cms/src/polyfills.ts",
             "tsConfig": "apps/cms/tsconfig.app.json",
-            "assets": [
-              "apps/cms/src/favicon.ico",
-              "apps/cms/src/assets"
-            ],
+            "assets": ["apps/cms/src/favicon.ico", "apps/cms/src/assets"],
             "styles": [],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
@@ -65,20 +60,14 @@
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/cms/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["apps/cms/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/cms"
-          ],
+          "outputs": ["coverage/apps/cms"],
           "options": {
             "jestConfig": "apps/cms/jest.config.js",
             "passWithNoTests": true
@@ -93,20 +82,14 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "libs/cms/components/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["libs/cms/components/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/cms/components"
-          ],
+          "outputs": ["coverage/libs/cms/components"],
           "options": {
             "jestConfig": "libs/cms/components/jest.config.js",
             "passWithNoTests": true
@@ -134,13 +117,9 @@
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/cms-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/cms-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -152,20 +131,14 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "libs/cms/pages/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["libs/cms/pages/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/cms/pages"
-          ],
+          "outputs": ["coverage/libs/cms/pages"],
           "options": {
             "jestConfig": "libs/cms/pages/jest.config.js",
             "passWithNoTests": true
@@ -180,20 +153,14 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "libs/cms/parts/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["libs/cms/parts/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/cms/parts"
-          ],
+          "outputs": ["coverage/libs/cms/parts"],
           "options": {
             "jestConfig": "libs/cms/parts/jest.config.js",
             "passWithNoTests": true
@@ -208,9 +175,7 @@
       "targets": {
         "build": {
           "executor": "@nrwl/web:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/mobileapp",
             "index": "apps/mobileapp/src/index.html",
@@ -221,9 +186,7 @@
               "apps/mobileapp/src/assets",
               "apps/mobileapp/src/manifest.json"
             ],
-            "styles": [
-              "apps/mobileapp/src/styles.css"
-            ],
+            "styles": ["apps/mobileapp/src/styles.css"],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
@@ -267,20 +230,14 @@
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/mobileapp/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["apps/mobileapp/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/mobileapp"
-          ],
+          "outputs": ["coverage/apps/mobileapp"],
           "options": {
             "jestConfig": "apps/mobileapp/jest.config.js",
             "passWithNoTests": true
@@ -376,16 +333,12 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/mobileapp-api",
             "main": "apps/mobileapp-api/src/main.ts",
             "tsConfig": "apps/mobileapp-api/tsconfig.app.json",
-            "assets": [
-              "apps/mobileapp-api/src/assets"
-            ]
+            "assets": ["apps/mobileapp-api/src/assets"]
           },
           "configurations": {
             "production": {
@@ -409,23 +362,42 @@
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/mobileapp-api/**/*.ts"
-            ]
+            "lintFilePatterns": ["apps/mobileapp-api/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/mobileapp-api"
-          ],
+          "outputs": ["coverage/apps/mobileapp-api"],
           "options": {
             "jestConfig": "apps/mobileapp-api/jest.config.js",
             "passWithNoTests": true
+          }
+        },
+        "generate": {
+          "builder": "@nx-tools/nx-prisma:generate",
+          "options": {
+            "schema": "apps/mobileapp-api/src/database/prisma/schema.prisma"
+          }
+        },
+        "migrations": {
+          "builder": "@nx-tools/nx-prisma:migrations",
+          "options": {
+            "schema": "apps/mobileapp-api/src/database/prisma/schema.prisma"
+          }
+        },
+        "rollback": {
+          "builder": "@nx-tools/nx-prisma:rollback",
+          "options": {
+            "schema": "apps/mobileapp-api/src/database/prisma/schema.prisma"
+          }
+        },
+        "seed": {
+          "builder": "@nx-tools/nx-prisma:seed",
+          "options": {
+            "script": "apps/mobileapp-api/prisma/data/seed.ts",
+            "tsConfig": "apps/mobileapp-api/prisma/tsconfig.tools.json"
           }
         }
       },
@@ -438,9 +410,7 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
             "lintFilePatterns": [
               "libs/mobileapp/components/**/*.{ts,tsx,js,jsx}"
@@ -449,9 +419,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/mobileapp/components"
-          ],
+          "outputs": ["coverage/libs/mobileapp/components"],
           "options": {
             "jestConfig": "libs/mobileapp/components/jest.config.js",
             "passWithNoTests": true
@@ -466,20 +434,14 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "libs/mobileapp/data-access/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/mobileapp/data-access/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/mobileapp/data-access"
-          ],
+          "outputs": ["coverage/libs/mobileapp/data-access"],
           "options": {
             "jestConfig": "libs/mobileapp/data-access/jest.config.js",
             "passWithNoTests": true
@@ -506,13 +468,9 @@
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/mobileapp-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/mobileapp-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -524,20 +482,14 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "libs/mobileapp/pages/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["libs/mobileapp/pages/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/mobileapp/pages"
-          ],
+          "outputs": ["coverage/libs/mobileapp/pages"],
           "options": {
             "jestConfig": "libs/mobileapp/pages/jest.config.js",
             "passWithNoTests": true

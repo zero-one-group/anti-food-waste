@@ -54,6 +54,9 @@ server.post<{
   console.log(request.body); // this is of type `PingBody`
   reply.code(200).send({ pong: 'it worked!' });
 });
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+server.register(require('fastify-cors'));
 server.register(router);
 // Start your server
 server.listen({ port: 8080, host: '0.0.0.0' }, (err, address) => {

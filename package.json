@@ -63,6 +63,7 @@
     "bcrypt": "^5.0.1",
     "core-js": "^3.6.5",
     "fastify": "3.x",
+    "fastify-cors": "^6.0.2",
     "formik": "^2.2.9",
     "framer-motion": "^4",
     "ionicons": "^5.2.3",

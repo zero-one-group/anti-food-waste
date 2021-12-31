@@ -59,6 +59,7 @@
     "@ionic/react-router": "^5.5.2",
     "@nx-tools/nx-prisma": "^1.0.1",
     "@prisma/client": "^3.7.0",
+    "axios": "^0.24.0",
     "bcrypt": "^5.0.1",
     "core-js": "^3.6.5",
     "fastify": "3.x",

@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE "Food" ALTER COLUMN "foodPrice" SET DATA TYPE BIGINT;
+
+-- AlterTable
+ALTER TABLE "User" ALTER COLUMN "userPhoneNumber" SET DATA TYPE BIGINT;

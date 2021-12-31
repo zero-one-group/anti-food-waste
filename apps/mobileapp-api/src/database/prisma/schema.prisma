@@ -13,7 +13,7 @@ model User {
   updatedAt       DateTime @updatedAt
   userName        String   @db.VarChar(255)
   userAddress     String
-  userPhoneNumber Int
+  userPhoneNumber BigInt
   userEmail       String   @unique
   userPassword    String
   userType        String
@@ -25,7 +25,7 @@ model Food {
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
   foodTitle       String   @db.VarChar(255)
-  foodPrice       Int
+  foodPrice       Int      @db.Integer
   foodCategory    String
   foodDescription String
   foodImage       String

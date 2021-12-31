@@ -326,6 +326,83 @@
         }
       }
     },
+    "mobileapp-api": {
+      "root": "apps/mobileapp-api",
+      "sourceRoot": "apps/mobileapp-api/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/mobileapp-api",
+            "main": "apps/mobileapp-api/src/main.ts",
+            "tsConfig": "apps/mobileapp-api/tsconfig.app.json",
+            "assets": ["apps/mobileapp-api/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/mobileapp-api/src/environments/environment.ts",
+                  "with": "apps/mobileapp-api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "mobileapp-api:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/mobileapp-api/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/mobileapp-api"],
+          "options": {
+            "jestConfig": "apps/mobileapp-api/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "generate": {
+          "builder": "@nx-tools/nx-prisma:generate",
+          "options": {
+            "schema": "apps/mobileapp-api/src/database/prisma/schema.prisma"
+          }
+        },
+        "migrations": {
+          "builder": "@nx-tools/nx-prisma:migrations",
+          "options": {
+            "schema": "apps/mobileapp-api/src/database/prisma/schema.prisma"
+          }
+        },
+        "rollback": {
+          "builder": "@nx-tools/nx-prisma:rollback",
+          "options": {
+            "schema": "apps/mobileapp-api/src/database/prisma/schema.prisma"
+          }
+        },
+        "seed": {
+          "builder": "@nx-tools/nx-prisma:seed",
+          "options": {
+            "script": "apps/mobileapp-api/prisma/data/seed.ts",
+            "tsConfig": "apps/mobileapp-api/prisma/tsconfig.tools.json"
+          }
+        }
+      },
+      "tags": []
+    },
     "mobileapp-components": {
       "root": "libs/mobileapp/components",
       "sourceRoot": "libs/mobileapp/components/src",
@@ -420,25 +497,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/react"
-  },
-  "generators": {
-    "@nrwl/react": {
-      "application": {
-        "style": "@emotion/styled",
-        "linter": "eslint",
-        "babel": true
-      },
-      "component": {
-        "style": "@emotion/styled"
-      },
-      "library": {
-        "style": "@emotion/styled",
-        "linter": "eslint"
-      }
-    }
-  },
-  "defaultProject": "cms"
+  }
 }

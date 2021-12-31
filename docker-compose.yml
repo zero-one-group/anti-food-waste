@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:10-alpine
+    restart: always
+    environment:
+        - POSTGRES_DB=mydb
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=supersecretpassword
+    ports:
+        - "5432:5432"

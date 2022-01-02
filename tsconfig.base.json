@@ -21,6 +21,9 @@
       "@anti-food-waste/mobileapp/components": [
         "libs/mobileapp/components/src/index.ts"
       ],
+      "@anti-food-waste/mobileapp/context": [
+        "libs/mobileapp/context/src/index.ts"
+      ],
       "@anti-food-waste/mobileapp/data-access": [
         "libs/mobileapp/data-access/src/index.ts"
       ],

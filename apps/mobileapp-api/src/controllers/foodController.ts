@@ -15,7 +15,7 @@ export const getOfficialFood: RouteHandlerMethod = async (req, res) => {
       },
       where: {
         User: {
-          userType: 'personal',
+          userType: 'official',
         },
       },
     });

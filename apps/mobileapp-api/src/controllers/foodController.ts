@@ -1,9 +1,48 @@
 import { RouteHandlerMethod } from 'fastify';
 import { prisma } from '../helpers/utils';
 
-export const getAllFood: RouteHandlerMethod = async (req, res) => {
+export const getOfficialFood: RouteHandlerMethod = async (req, res) => {
   try {
-    const { ...food } = await prisma.food.findMany();
+    const { ...food } = await prisma.food.findMany({
+      include: {
+        User: {
+          select: {
+            userType: true,
+            userPhoneNumber: true,
+            userName: true,
+          },
+        },
+      },
+      where: {
+        User: {
+          userType: 'personal',
+        },
+      },
+    });
+    return res.send({ food });
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
+export const getPersonalFood: RouteHandlerMethod = async (req, res) => {
+  try {
+    const { ...food } = await prisma.food.findMany({
+      include: {
+        User: {
+          select: {
+            userType: true,
+            userPhoneNumber: true,
+            userName: true,
+          },
+        },
+      },
+      where: {
+        User: {
+          userType: 'personal',
+        },
+      },
+    });
     return res.send({ food });
   } catch (error) {
     res.status(500).send(error);
@@ -112,6 +151,17 @@ export const updateFood: RouteHandlerMethod = async (req, res) => {
       },
     });
     return res.send({ food });
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
+export const getUserOfficialFood: RouteHandlerMethod = async (req, res) => {
+  try {
+    const userFood = await prisma.food.groupBy({
+      by: [],
+    });
+    return res.send({ userFood });
   } catch (error) {
     res.status(500).send(error);
   }

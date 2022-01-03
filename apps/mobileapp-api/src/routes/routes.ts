@@ -5,10 +5,15 @@ import * as userController from '../controllers/userController';
 type RouteConfig = Record<string, RouteOptions>;
 
 const routes: RouteConfig = {
-  getAllFood: {
+  getOfficialFood: {
     method: 'GET',
-    url: '/food',
-    handler: foodController.getAllFood,
+    url: '/officialfood',
+    handler: foodController.getOfficialFood,
+  },
+  getPersonalFood: {
+    method: 'GET',
+    url: '/personalfood',
+    handler: foodController.getPersonalFood,
   },
   addFood: {
     method: 'POST',
@@ -44,6 +49,16 @@ const routes: RouteConfig = {
     method: 'POST',
     url: '/signup',
     handler: userController.signUp,
+  },
+  getAllUser: {
+    method: 'GET',
+    url: '/user',
+    handler: userController.getAllUser,
+  },
+  removeAllUser: {
+    method: 'DELETE',
+    url: '/removealluser',
+    handler: userController.removeAllUser,
   },
 };
 

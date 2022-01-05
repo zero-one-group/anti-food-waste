@@ -1,6 +1,7 @@
 import fastify, { FastifyInstance, RouteShorthandOptions } from 'fastify';
 import { Server, IncomingMessage, ServerResponse } from 'http';
 import { router } from './routes';
+import corsPlugin from 'fastify-cors';
 
 // Create an http server. We pass the relevant typings for our http version used.
 // By passing types we get correctly typed access to the underlying http objects in routes.
@@ -55,8 +56,7 @@ server.post<{
   reply.code(200).send({ pong: 'it worked!' });
 });
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-server.register(require('fastify-cors'));
+server.register(corsPlugin, { origin: true });
 server.register(router);
 // Start your server
 server.listen({ port: 8080, host: '0.0.0.0' }, (err, address) => {

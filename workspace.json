@@ -376,25 +376,25 @@
           }
         },
         "generate": {
-          "builder": "@nx-tools/nx-prisma:generate",
+          "executor": "@nx-tools/nx-prisma:generate",
           "options": {
             "schema": "apps/mobileapp-api/src/database/prisma/schema.prisma"
           }
         },
         "migrations": {
-          "builder": "@nx-tools/nx-prisma:migrations",
+          "executor": "@nx-tools/nx-prisma:migrations",
           "options": {
             "schema": "apps/mobileapp-api/src/database/prisma/schema.prisma"
           }
         },
         "rollback": {
-          "builder": "@nx-tools/nx-prisma:rollback",
+          "executor": "@nx-tools/nx-prisma:rollback",
           "options": {
             "schema": "apps/mobileapp-api/src/database/prisma/schema.prisma"
           }
         },
         "seed": {
-          "builder": "@nx-tools/nx-prisma:seed",
+          "executor": "@nx-tools/nx-prisma:seed",
           "options": {
             "script": "apps/mobileapp-api/prisma/data/seed.ts",
             "tsConfig": "apps/mobileapp-api/prisma/tsconfig.tools.json"
@@ -422,6 +422,28 @@
           "outputs": ["coverage/libs/mobileapp/components"],
           "options": {
             "jestConfig": "libs/mobileapp/components/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "mobileapp-context": {
+      "root": "libs/mobileapp/context",
+      "sourceRoot": "libs/mobileapp/context/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/mobileapp/context/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/mobileapp/context"],
+          "options": {
+            "jestConfig": "libs/mobileapp/context/jest.config.js",
             "passWithNoTests": true
           }
         }

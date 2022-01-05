@@ -16,7 +16,7 @@ const limitsUpload = {
 };
 
 export const upload = multer({
-  dest: '/uploads',
+  dest: 'apps/mobileapp-api/src/uploads',
   fileFilter: imageFilter,
   limits: limitsUpload,
 });

@@ -1,6 +1,7 @@
 import { RouteOptions } from 'fastify';
 import * as foodController from '../controllers/foodController';
 import * as userController from '../controllers/userController';
+import { upload } from '../helpers/multer';
 
 type RouteConfig = Record<string, RouteOptions>;
 
@@ -18,6 +19,7 @@ const routes: RouteConfig = {
   addFood: {
     method: 'POST',
     url: '/addfood',
+    preHandler: upload.single('image'),
     handler: foodController.addFood,
   },
   removeFood: {
@@ -39,6 +41,11 @@ const routes: RouteConfig = {
     method: 'GET',
     url: '/food/:userId',
     handler: foodController.getUserFood,
+  },
+  getDetailFood: {
+    method: 'GET',
+    url: '/food/detailfood/:id',
+    handler: foodController.getDetailFood,
   },
   login: {
     method: 'POST',

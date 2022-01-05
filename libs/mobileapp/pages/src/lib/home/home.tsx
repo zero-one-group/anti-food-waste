@@ -18,25 +18,33 @@ import {
 import { add } from 'ionicons/icons';
 import { CardProduct } from '@anti-food-waste/mobileapp/components';
 
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
-import {
-  getProductFromOfficial,
-  getProductFromNeighbor,
-} from '@anti-food-waste/mobileapp/data-access';
+import axios from 'axios';
+
 import { useEffect, useState } from 'react';
+
+type userParamsProps = {
+  userType: string;
+  userPhoneNumber: string;
+  userName: string;
+  userAddress: string;
+};
 
 type productProps = {
   id: number;
-  productName: string;
-  productImage: string;
-  productLocation: string;
-  productPrice: number;
-  productSeller: string;
-  productLabel: string;
+  createdAt: string;
+  updatedAt: string;
+  foodTitle: string;
+  foodPrice: number;
+  foodCategory: string;
+  foodDescription: string;
+  foodImage: string;
+  pickUpTimes: string;
+  userId: number;
+  User: userParamsProps;
 };
 
 export function Home() {
-  const [productFromNeighbor, setProductFromNeighbor] = useState<
+  const [productFromPersonal, setProductFromPersonal] = useState<
     productProps[]
   >([]);
   const [productFromOfficial, setProductFromOfficial] = useState<
@@ -45,10 +53,12 @@ export function Home() {
 
   useEffect(() => {
     async function fetchData() {
-      const productNeighbor = await getProductFromNeighbor();
-      const productOfficial = await getProductFromOfficial();
-      setProductFromNeighbor(productNeighbor);
-      setProductFromOfficial(productOfficial);
+      axios.get('http://localhost:8080/officialfood').then((response) => {
+        setProductFromOfficial(response.data.officialFood);
+      });
+      axios.get('http://localhost:8080/personalfood').then((response) => {
+        setProductFromPersonal(response.data.personalFood);
+      });
     }
     fetchData();
   }, []);
@@ -73,19 +83,20 @@ export function Home() {
             }}
             className={`ion-padding-bottom`}
           >
-            {productFromOfficial.map((v, i) => (
-              <IonSlide key={i}>
-                <CardProduct
-                  productName={v.productName}
-                  productImage={v.productImage}
-                  productLocation={v.productLocation}
-                  productPrice={v.productPrice}
-                  productSeller={v.productSeller}
-                  productLabel={v.productLabel}
-                  productId={v.id}
-                />
-              </IonSlide>
-            ))}
+            {productFromOfficial &&
+              productFromOfficial.map((v, i) => (
+                <IonSlide key={i}>
+                  <CardProduct
+                    productName={v.foodTitle}
+                    productImage={v.foodImage}
+                    productLocation={v.User.userAddress}
+                    productPrice={v.foodPrice}
+                    productSeller={v.User.userName}
+                    productLabel={v.foodCategory}
+                    productId={v.id}
+                  />
+                </IonSlide>
+              ))}
           </IonSlides>
 
           <IonRow className="ion-justify-content-between">
@@ -93,19 +104,20 @@ export function Home() {
             <IonRouterLink href="/all-unofficial-food">see all</IonRouterLink>
           </IonRow>
           <IonRow>
-            {productFromNeighbor.map((v, i) => (
-              <IonCol size="12" key={i}>
-                <CardProduct
-                  productName={v.productName}
-                  productImage={v.productImage}
-                  productLocation={v.productLocation}
-                  productPrice={v.productPrice}
-                  productSeller={v.productSeller}
-                  productLabel={v.productLabel}
-                  productId={v.id}
-                />
-              </IonCol>
-            ))}
+            {productFromPersonal &&
+              productFromPersonal.map((v, i) => (
+                <IonCol size="12" key={i}>
+                  <CardProduct
+                    productName={v.foodTitle}
+                    productImage={v.foodImage}
+                    productLocation={v.User.userAddress}
+                    productPrice={v.foodPrice}
+                    productSeller={v.User.userName}
+                    productLabel={v.foodCategory}
+                    productId={v.id}
+                  />
+                </IonCol>
+              ))}
           </IonRow>
         </IonGrid>
         <IonFab vertical="bottom" horizontal="end" slot="fixed">

@@ -15,19 +15,32 @@ import {
 import { add } from 'ionicons/icons';
 import { CardProduct } from '@anti-food-waste/mobileapp/components';
 
+import axios from 'axios';
+
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { getProductFromOfficial } from '@anti-food-waste/mobileapp/data-access';
 
 import { useEffect, useState } from 'react';
 
+type userParamsProps = {
+  userType: string;
+  userPhoneNumber: string;
+  userName: string;
+  userAddress: string;
+};
+
 type productProps = {
   id: number;
-  productName: string;
-  productImage: string;
-  productLocation: string;
-  productPrice: number;
-  productSeller: string;
-  productLabel: string;
+  createdAt: string;
+  updatedAt: string;
+  foodTitle: string;
+  foodPrice: number;
+  foodCategory: string;
+  foodDescription: string;
+  foodImage: string;
+  pickUpTimes: string;
+  userId: number;
+  User: userParamsProps;
 };
 
 export function AllOfficialFood() {
@@ -37,8 +50,9 @@ export function AllOfficialFood() {
 
   useEffect(() => {
     async function fetchData() {
-      const productOfficial = await getProductFromOfficial();
-      setProductFromOfficial(productOfficial);
+      axios.get('http://localhost:8080/officialfood').then((response) => {
+        setProductFromOfficial(response.data.officialFood);
+      });
     }
     fetchData();
   }, []);
@@ -56,12 +70,12 @@ export function AllOfficialFood() {
             {productFromOfficial.map((v, i) => (
               <IonCol size="12" key={i}>
                 <CardProduct
-                  productName={v.productName}
-                  productImage={v.productImage}
-                  productLocation={v.productLocation}
-                  productPrice={v.productPrice}
-                  productSeller={v.productSeller}
-                  productLabel={v.productLabel}
+                  productName={v.foodTitle}
+                  productImage={v.foodImage}
+                  productLocation={v.User.userAddress}
+                  productPrice={v.foodPrice}
+                  productSeller={v.User.userName}
+                  productLabel={v.foodCategory}
                   productId={v.id}
                 />
               </IonCol>

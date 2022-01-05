@@ -12,32 +12,70 @@ import {
   IonAvatar,
 } from '@ionic/react';
 
-import { useState, useEffect } from 'react';
-
+import axios from 'axios';
+import { useState, useEffect, useContext } from 'react';
 import { CardProduct } from '@anti-food-waste/mobileapp/components';
-import { getProductFromNeighbor } from '@anti-food-waste/mobileapp/data-access';
+
+type userParamsProps = {
+  userType: string;
+  userPhoneNumber: string;
+  userName: string;
+  userAddress: string;
+};
+
 type productProps = {
   id: number;
-  productName: string;
-  productImage: string;
-  productLocation: string;
-  productPrice: number;
-  productSeller: string;
-  productLabel: string;
+  createdAt: string;
+  updatedAt: string;
+  foodTitle: string;
+  foodPrice: number;
+  foodCategory: string;
+  foodDescription: string;
+  foodImage: string;
+  pickUpTimes: string;
+  userId: number;
+  User: userParamsProps;
+};
+
+type userProps = {
+  createdAt: string;
+  id: string;
+  updatedAt: string;
+  userAddress: string;
+  userEmail: string;
+  userName: string;
+  userPassword: string;
+  userPhoneNumber: string;
+  userType: string;
 };
 
 export function Profile() {
   const [productFromNeighbor, setProductFromNeighbor] = useState<
     productProps[]
   >([]);
+  const [storageData, setStorageData] = useState<userProps>();
+  console.log(productFromNeighbor);
 
   useEffect(() => {
-    async function fetchData() {
-      const productNeighbor = await getProductFromNeighbor();
-      setProductFromNeighbor(productNeighbor);
+    async function getStorageData() {
+      const getdata = window.localStorage.getItem('user');
+      getdata && setStorageData(JSON.parse(getdata));
     }
-    fetchData();
+    getStorageData();
   }, []);
+
+  useEffect(() => {
+    async function getProductData() {
+      storageData &&
+        axios
+          .get(`http://localhost:8080/food/?userId=${parseInt(storageData.id)}`)
+          .then((response) => {
+            setProductFromNeighbor(response.data.userFood);
+          });
+    }
+    getProductData();
+  }, [storageData]);
+
   return (
     <IonPage>
       <IonHeader>
@@ -76,19 +114,20 @@ export function Profile() {
             <b>Makanan yang kamu bagikan</b>
           </IonRow>
           <IonRow>
-            {productFromNeighbor.map((v, i) => (
-              <IonCol size="12" key={i}>
-                <CardProduct
-                  productName={v.productName}
-                  productImage={v.productImage}
-                  productLocation={v.productLocation}
-                  productPrice={v.productPrice}
-                  productSeller={v.productSeller}
-                  productLabel={v.productLabel}
-                  productId={v.id}
-                />
-              </IonCol>
-            ))}
+            {productFromNeighbor.length > 0 &&
+              productFromNeighbor.map((v, i) => (
+                <IonCol size="12" key={i}>
+                  <CardProduct
+                    productName={v.foodTitle}
+                    productImage={v.foodImage}
+                    productLocation={v.User.userAddress}
+                    productPrice={v.foodPrice}
+                    productSeller={v.User.userName}
+                    productLabel={v.foodCategory}
+                    productId={v.id}
+                  />
+                </IonCol>
+              ))}
           </IonRow>
         </IonGrid>
       </IonContent>

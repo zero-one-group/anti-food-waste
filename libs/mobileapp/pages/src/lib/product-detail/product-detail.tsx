@@ -14,21 +14,31 @@ import {
   IonAvatar,
 } from '@ionic/react';
 
+import axios from 'axios';
+
 import { arrowBack } from 'ionicons/icons';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
-import { getProductDetail } from '@anti-food-waste/mobileapp/data-access';
+
+type userParamsProps = {
+  userType: string;
+  userPhoneNumber: string;
+  userName: string;
+  userAddress: string;
+};
 
 type productProps = {
   id: number;
-  productName: string;
-  productImage: string;
-  productLocation: string;
-  productPrice: number;
-  productSeller: string;
-  description: string;
-  productLabel: string;
+  createdAt: string;
+  updatedAt: string;
+  foodTitle: string;
+  foodPrice: number;
+  foodCategory: string;
+  foodDescription: string;
+  foodImage: string;
+  pickUpTimes: string;
+  userId: number;
+  User: userParamsProps;
 };
 
 export function ProductDetail() {
@@ -37,8 +47,11 @@ export function ProductDetail() {
 
   useEffect(() => {
     async function fetchData() {
-      const product = await getProductDetail(parseInt(id));
-      setProductDetail(product);
+      axios
+        .get(`http://localhost:8080/food/detailfood/?id=${parseInt(id)}`)
+        .then((response) => {
+          setProductDetail(response.data.foodDetail);
+        });
     }
     fetchData();
   }, [id]);
@@ -51,26 +64,23 @@ export function ProductDetail() {
             <IonBackButton defaultHref="/home" icon={arrowBack} text="" />
           </IonButtons>
           <IonTitle className="text-bold ion-no-padding">
-            {productDetail?.productName}
+            {productDetail?.foodTitle}
           </IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen className="ion-padding">
         <IonGrid className="ion-margin-bottom">
-          <img
-            src={productDetail?.productImage}
-            alt={productDetail?.productName}
-          />
+          <img src={productDetail?.foodImage} alt={productDetail?.foodTitle} />
           <IonRow className="product-detail-price">
-            {productDetail?.productPrice !== 0 ? (
-              <IonText>Rp {productDetail?.productPrice}</IonText>
+            {productDetail?.foodPrice !== 0 ? (
+              <IonText>Rp {productDetail?.foodPrice}</IonText>
             ) : (
               <IonText>Free</IonText>
             )}
           </IonRow>
           <IonRow>
             <IonText className="product-detail-name">
-              {productDetail?.productName}
+              {productDetail?.foodTitle}
             </IonText>
           </IonRow>
 
@@ -83,22 +93,22 @@ export function ProductDetail() {
             </IonAvatar>
             <IonCol className="product-detail-seller">
               <IonRow>
-                <IonText>{productDetail?.productSeller}</IonText>
+                <IonText>{productDetail?.User.userName}</IonText>
               </IonRow>
               <IonRow>
-                <IonText>{productDetail?.productLocation}</IonText>
+                <IonText>{productDetail?.User.userAddress}</IonText>
               </IonRow>
             </IonCol>
           </IonRow>
           <IonRow className="ion-margin-bottom">
             <IonText className="product-detail-category">Kategori: </IonText>
             <div className="card-product-label">
-              {productDetail?.productLabel}
+              {productDetail?.foodCategory}
             </div>
           </IonRow>
           <IonRow className="product-detail-description">
             <IonText>Deskripsi</IonText>
-            <IonText>{productDetail?.description}</IonText>
+            <IonText>{productDetail?.foodDescription}</IonText>
           </IonRow>
           <IonRow className="product-detail-description ion-margin-top">
             <IonText>Pick up times</IonText>

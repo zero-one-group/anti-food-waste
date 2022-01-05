@@ -3,7 +3,7 @@ import { prisma } from '../helpers/utils';
 
 export const getOfficialFood: RouteHandlerMethod = async (req, res) => {
   try {
-    const { ...food } = await prisma.food.findMany({
+    const officialFood = await prisma.food.findMany({
       include: {
         User: {
           select: {
@@ -20,7 +20,7 @@ export const getOfficialFood: RouteHandlerMethod = async (req, res) => {
         },
       },
     });
-    return res.send({ food });
+    return res.send({ officialFood });
   } catch (error) {
     res.status(500).send(error);
   }
@@ -28,7 +28,7 @@ export const getOfficialFood: RouteHandlerMethod = async (req, res) => {
 
 export const getPersonalFood: RouteHandlerMethod = async (req, res) => {
   try {
-    const { ...food } = await prisma.food.findMany({
+    const personalFood = await prisma.food.findMany({
       include: {
         User: {
           select: {
@@ -45,7 +45,31 @@ export const getPersonalFood: RouteHandlerMethod = async (req, res) => {
         },
       },
     });
-    return res.send({ food });
+    return res.send({ personalFood });
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
+export const getDetailFood: RouteHandlerMethod = async (req, res) => {
+  try {
+    const { id } = req.query as any;
+    const foodDetail = await prisma.food.findUnique({
+      where: {
+        id: parseInt(id),
+      },
+      include: {
+        User: {
+          select: {
+            userType: true,
+            userPhoneNumber: true,
+            userName: true,
+            userAddress: true,
+          },
+        },
+      },
+    });
+    return res.send({ foodDetail });
   } catch (error) {
     res.status(500).send(error);
   }
@@ -99,6 +123,16 @@ export const getUserFood: RouteHandlerMethod = async (req, res) => {
     const userFood = await prisma.food.findMany({
       where: {
         userId: parseInt(userId),
+      },
+      include: {
+        User: {
+          select: {
+            userType: true,
+            userPhoneNumber: true,
+            userName: true,
+            userAddress: true,
+          },
+        },
       },
     });
     return res.send({ userFood });

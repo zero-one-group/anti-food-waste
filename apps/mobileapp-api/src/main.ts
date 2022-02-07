@@ -1,7 +1,9 @@
+import { IncomingMessage, Server, ServerResponse } from 'http';
 import fastify, { FastifyInstance, RouteShorthandOptions } from 'fastify';
-import { Server, IncomingMessage, ServerResponse } from 'http';
-import { router } from './routes';
+
 import corsPlugin from 'fastify-cors';
+import multer from 'fastify-multer';
+import { router } from './routes';
 
 // Create an http server. We pass the relevant typings for our http version used.
 // By passing types we get correctly typed access to the underlying http objects in routes.
@@ -55,7 +57,7 @@ server.post<{
   console.log(request.body); // this is of type `PingBody`
   reply.code(200).send({ pong: 'it worked!' });
 });
-
+server.register(multer.contentParser);
 server.register(corsPlugin, { origin: true });
 server.register(router);
 // Start your server

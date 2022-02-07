@@ -9,7 +9,8 @@
   },
   "private": true,
   "devDependencies": {
-    "@capacitor/android": "^2.4.5",
+    "@capacitor/android": "^3.3.4",
+    "@capacitor/cli": "^3.3.4",
     "@capacitor/ios": "^2.4.5",
     "@emotion/babel-plugin": "11.2.0",
     "@nrwl/cli": "12.9.0",
@@ -74,5 +75,16 @@
     "react-router-dom": "5.2.0",
     "regenerator-runtime": "0.13.7",
     "tslib": "^2.0.0"
-  }
+  },
+  "description": "An anti food waste App 🍕 ♻️ using Nx, Ionic, Capacitor, Fastify, Prisma",
+  "main": "jest.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zero-one-group/anti-food-waste.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/zero-one-group/anti-food-waste/issues"
+  },
+  "homepage": "https://github.com/zero-one-group/anti-food-waste#readme"
 }

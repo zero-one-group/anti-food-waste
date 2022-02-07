@@ -1,5 +1,6 @@
+import { comparePassword, prisma } from '../helpers/utils';
+
 import { RouteHandlerMethod } from 'fastify';
-import { prisma, comparePassword } from '../helpers/utils';
 
 // for development purpose
 export const getAllUser: RouteHandlerMethod = async (req, res) => {
